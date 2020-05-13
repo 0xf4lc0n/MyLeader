@@ -1,0 +1,25 @@
+OK code:
+0 - OK
+
+Communication codes:
+10 - Communication error
+
+Database codes:
+50 - Database connection error "Can't connect to database server! Contact with network administrator!"
+55 - Database server error "Database server error! Contact with technical department!"
+
+Data codes:
+100 - Data error "Error! Your data aren't complete!
+110 - Wrong data! Check them and retype again!
+115 - Empty list (No tasks, users, groups etc)
+120 - Login error! Check your data!
+125 - Changing password error! Check your data!
+130 - This login or email has been used!
+135 - Changing status error (SubTask do not exist)
+140 - Your account hasn't been activated!
+
+
+
+Others:
+300 - Unexpected error! Contact with technical department!
+310 - Security issue
