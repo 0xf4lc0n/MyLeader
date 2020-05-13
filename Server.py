@@ -13,10 +13,11 @@ class Server:
         self.Socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.Address = None
         self.Port = None
-        self.DatabaseOperation = DatabaseQuery.DataBaseOperate()
+        self.DatabaseOperation = None
 
     # Setting server to listen incoming connections
     def SetServer(self):
+        self.DatabaseOperation = DatabaseQuery.DataBaseOperate()
         self.Socket.bind((self.Address, self.Port))
         self.Socket.listen(100)
         self.Socket.setblocking(False)
@@ -130,6 +131,9 @@ class Server:
 
 if __name__ == '__main__':
     ServerProcess = Server()
-    Validation.Validate(sys.argv, ServerProcess)
-    ServerProcess.SetServer()
-    ServerProcess.ServerLoop()
+    validator = Validation.Validate(sys.argv, ServerProcess, "Server")
+    validation_code = validator.validate()
+
+    if validation_code == 0:
+        ServerProcess.SetServer()
+        ServerProcess.ServerLoop()
